@@ -1,0 +1,2 @@
+0,Apple,1.2,Fruits
+1,Banana,0.8,Fruits

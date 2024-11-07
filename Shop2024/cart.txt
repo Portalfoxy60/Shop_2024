@@ -1,0 +1,28 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.File;
+
+public class CartFileWriterHelper {
+    public static void writeCartToFile(String fileName) {
+        File file = new File(fileName);
+        // Проверяем, существует ли файл, если нет, создаем его
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            // Записываем данные
+            try (FileWriter writer = new FileWriter(file)) {
+                writer.write("1,2\n");  // 2 яблока
+                writer.write("2,3\n");  // 3 банана
+                writer.write("3,1\n");  // 1 апельсин
+                System.out.println("Cart has been written to " + fileName);
+            }
+        } catch (IOException e) {
+            System.out.println("Error writing cart to file: " + e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        writeCartToFile("cart.txt");  // Запись корзины в файл
+    }
+}
